@@ -6,14 +6,9 @@ function generateCat(){
     div.appendChild(image);
 }
 
-
-// document.getElementById('toolsRow').style.display = "none"
-// let selectedImg = document.createElement('img');
-// selectedImg.classList.add('w-100');
-// let selectedImgDiv = document.getElementById('selectedImg');
-// selectedImg.src = yourChoice.src;
-// selectedImgDiv.appendChild(selectedImg);
-// generateRandomImg();
+function clearCat(){
+    document.getElementById('display').innerHTML = "";
+}
 
 function startGame(yourChoice){
     let humanChoice, botChoice;
