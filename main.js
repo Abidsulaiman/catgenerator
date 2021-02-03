@@ -1,3 +1,5 @@
+// generate cat
+
 function generateCat(){
     let image = document.createElement('img');
     var div = document.getElementById('display')
@@ -9,6 +11,9 @@ function generateCat(){
 function clearCat(){
     document.getElementById('display').innerHTML = "";
 }
+
+
+// rock, paper, scissors
 
 function startGame(yourChoice){
     let humanChoice, botChoice;
@@ -72,3 +77,53 @@ function rpsFrontEnd(humanImageChoice, botImageChoice, finalMessage){
 }
 
 
+// change color of buttons
+
+let all_buttons = document.getElementsByTagName('button');
+let copy_buttons = [];
+
+for(let i=0; i < all_buttons.length; i++){
+    copy_buttons.push(all_buttons[i].classList[1])
+}
+
+function changeColor(select){
+    if(select.value === 'red'){
+        buttonRed();
+    }else if(select.value === 'green'){
+        buttonGreen();
+    }else if(select.value === 'reset'){
+        buttonReset()
+    }else{
+        buttonRandom();
+    }
+}
+
+function buttonRed(){
+    for(let i=0; i<all_buttons.length; i++){
+        all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+        all_buttons[i].classList.add('btn-danger')
+    }
+}
+
+function buttonGreen(){
+    for(let i=0; i<all_buttons.length; i++){
+        all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+        all_buttons[i].classList.add('btn-success')
+    }
+}
+
+function buttonReset(){
+    for(let i=0; i<all_buttons.length; i++){
+        all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+        all_buttons[i].classList.add(copy_buttons[i])
+    }
+}
+
+function buttonRandom(){
+    let choices = ['btn-danger', 'btn-success', 'btn-primary', 'btn-warning']
+    for(let i=0; i<all_buttons.length; i++){
+        let randomNum = Math.floor(Math.random() * choices.length)
+        all_buttons[i].classList.remove(all_buttons[i].classList[1]);
+        all_buttons[i].classList.add(choices[randomNum]);
+    }
+}
